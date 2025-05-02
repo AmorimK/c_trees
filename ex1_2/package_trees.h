@@ -12,4 +12,4 @@ NoPacote * insereNoPacote(NoPacote * raiz, Pacote pacote);
 
 NoPacote * criaArvoreComVetorDePacotes(Pacote * vetor, int tamanho);
 
-void imprimeCentralPacotes(NoPacote * raiz);
+void imprimeCentralPacotes(NoPacote * raiz, FILE * arquivo);

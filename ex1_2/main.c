@@ -5,6 +5,12 @@
 #include "packages.h"
 #include "package_trees.h"
 
+/*Integrantes da Equipe:
+Carlos Henrick Cavalcante Gomes
+Kaua Amorim
+Adrian Batista
+Andre Kaled*/
+
 int main(){
 
  srand(time(NULL));
@@ -37,18 +43,15 @@ int main(){
 int qtd_pacotes = 10;
 
 Pacote * pacotes = (Pacote*) malloc(sizeof(Pacote) * qtd_pacotes);
-
 preencheVetorDePacotes(pacotes, qtd_pacotes);
 
-printf("\n\n");
+FILE * arquivo = fopen("log.txt", "a");
+
 for(int i = 0; i<qtd_pacotes; i++){
-    printf("id: %d, valor: %d\n", pacotes[i].id, pacotes[i].valor);
+    fprintf(arquivo,"id: %d, valor: %d\n", pacotes[i].id, pacotes[i].valor);
 }
-printf("\n");
 
 NoPacote * raiz_pacotes = criaArvoreComVetorDePacotes(pacotes, qtd_pacotes);
-imprimeCentralPacotes(raiz_pacotes);
-
-/* raiz_pacotes deve virar arquivo depois */
+imprimeCentralPacotes(raiz_pacotes, arquivo);
 
 }

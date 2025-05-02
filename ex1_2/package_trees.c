@@ -36,11 +36,11 @@ NoPacote * criaArvoreComVetorDePacotes(Pacote * vetor, int tamanho){
     return raiz;
 }
 
-void imprimeCentralPacotes(NoPacote * raiz){
+void imprimeCentralPacotes(NoPacote * raiz, FILE * arquivo){
     if (raiz!=NULL){
-        imprimeCentralPacotes(raiz->esq);
-        printf("idarv: %d, valorarv: %d\n", raiz->pacote.id, raiz->pacote.valor);
-        imprimeCentralPacotes(raiz->dir);
+        imprimeCentralPacotes(raiz->esq, arquivo);
+        fprintf(arquivo, "idarv: %d, valorarv: %d\n", raiz->pacote.id, raiz->pacote.valor);
+        imprimeCentralPacotes(raiz->dir, arquivo);
     }
 
 }
