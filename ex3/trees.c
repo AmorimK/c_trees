@@ -13,11 +13,11 @@ No * criaNo(int valor){
    return novo_no;
 }
 
-No * criaArvoreComVetor(Vetor * vetor, int tam){
+No * criaArvoreComVetor(Vetor * vetor){
 
     No * raiz = criaNo(vetor->dados[0]);
 
-    for(int i = 1; i < tam; i++){
+    for(int i = 1; i < vetor->tamanho; i++){
         insereNo(raiz, vetor->dados[i]);
     }
 

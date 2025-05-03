@@ -26,7 +26,7 @@ int main(){
     Vetor * vetor = criaVetor(TAM);
     populaVetorOrdenado(vetor);
 
-    No * raiz = criaArvoreComVetor(vetor, TAM);
+    No * raiz = criaArvoreComVetor(vetor);
 
     /* Gerando valores a serem buscados */
 

@@ -12,7 +12,7 @@ typedef struct No{
 
 No * criaNo(int valor);
 
-No * criaArvoreComVetor(Vetor * vetor, int tamanho);
+No * criaArvoreComVetor(Vetor * vetor);
 
 No* insereNo(No * raiz, int valor);
 
