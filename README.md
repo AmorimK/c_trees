@@ -1,12 +1,17 @@
-# Trabalho 2 de AED.
+# Trabalho 2 de AED2
 
-# Padroes para desenvolvimento:
+Carlos Henrick Cavalcante Gomes <br>
+Kaua Amorim <br>
+Adrian Batista <br>
+Andre Kaled <br>
 
-Funções: camelCase
-Variáveis: snake_case
+## Padroes para desenvolvimento:
 
-Funções sempre bem descritivas
-Ex: criaArvoreBinaria
+- **Funções:** camelCase
+- **Variáveis:** snake_case
 
-Variáveis de preferencia no começo do código e bem descritivas
-Ex: conta_elementos_arvore
+Funções sempre bem descritivas <br>
+**Ex:** criaArvoreBinaria
+
+Variáveis de preferencia no começo do código e bem descritivas <br>
+**Ex:** conta_elementos_arvore
