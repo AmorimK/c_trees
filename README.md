@@ -15,3 +15,16 @@ Funções sempre bem descritivas <br>
 
 Variáveis de preferencia no começo do código e bem descritivas <br>
 **Ex:** conta_elementos_arvore
+
+## Executando com Makefile
+
+No terminal, use os comandos abaixo para compilar ou executar partes do projeto:
+```sh
+make            # compila todos os algoritmos do projeto 
+make ex1_2      # compila algoritmos dos experimentos 1 e 2
+make ex3        # compila algoritmos do experimento 3
+make run_ex1_2  # executa o programa do experimento 1 e 2
+make run_ex3    # executa o programa do experimento 3
+make clean      # Remove arquivos .o e .out gerados na compilação
+make help       #lista comandos e descreve o que faz
+```
