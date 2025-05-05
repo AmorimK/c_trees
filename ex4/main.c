@@ -15,14 +15,12 @@
 #include "trees.h"
 #include <stdio.h>
 int main(){
-    int dados[] = {30,20,40,10,9};
-    Vetor vetor = {dados, 5};  // Exemplo de vetor com 7 elementos
+    int dados[] = {3,2,1,4,5,6,7};
+    Vetor vetor = {dados, 7};  
 
     No* raiz = avl_criaArvoreComVetor(&vetor);
 
     imprimePreFixado(raiz);
     printf("\n");
-    imprimeCentral(raiz);
-    printf("\n");
-    imprimePosFixado(raiz);
+    
 }

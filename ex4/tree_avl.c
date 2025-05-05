@@ -96,6 +96,38 @@ No* avl_insereNo(No* raiz, int valor){
     return raiz;
 }
 
+No* avl_noMinimo(No *no){
+    while(no && no->esq)
+        no = no->esq;
+    return no;
+}
+
+No* avl_removeNo(No *no, int valor){
+    //busca
+    if(no == NULL)
+        return no;
+    if(valor < no->esq){
+        no->esq = avl_removeNo(no->esq, valor);
+    }else if(valor > no->dir){
+        no->dir =avl_removeNo(no->dir, valor);
+    }else{
+        // achou
+        // é folha ou tem 1 filho
+        if(no->esq == NULL || no->dir == NULL){
+            No *tmp = no->esq ? no->esq :no->dir;
+            free(no);
+            return tmp;
+        }else{
+            // 2 filhos, troca o valor minimo a esquerda com o no achado e remove a folha
+            No *tmp = avl_noMinimo(no->dir);
+            no->valor = tmp->valor;
+            no->dir = avl_removeNo(no->dir, tmp->valor);
+        }
+    }
+    /** Tem que balancear aqui */
+
+}
+
 No* avl_criaArvoreComVetor(Vetor *vetor){
     if(vetor == NULL || vetor->dados == NULL) return NULL;
     No *raiz = avl_criaNo(vetor->dados[0]);
