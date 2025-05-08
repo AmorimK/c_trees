@@ -11,4 +11,6 @@ No* avl_insereNo(No* raiz, int valor);
 
 No* avl_criaArvoreComVetor(Vetor *vetor);
 
+No* avl_removeNo(No *no, int valor);
+
 #endif

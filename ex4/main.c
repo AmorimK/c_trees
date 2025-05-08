@@ -15,12 +15,16 @@
 #include "trees.h"
 #include <stdio.h>
 int main(){
-    int dados[] = {3,2,1,4,5,6,7};
-    Vetor vetor = {dados, 7};  
+    int dados[] = {60,40,70,20,50,65,80,10,45,55,90,42,52,56};
+    Vetor vetor = {dados, 14};  
 
     No* raiz = avl_criaArvoreComVetor(&vetor);
 
     imprimePreFixado(raiz);
     printf("\n");
     
+    raiz = avl_removeNo(raiz, 65);
+
+    imprimePreFixado(raiz);
+    printf("\n");
 }

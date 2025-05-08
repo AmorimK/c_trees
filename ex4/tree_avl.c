@@ -106,9 +106,9 @@ No* avl_removeNo(No *no, int valor){
     //busca
     if(no == NULL)
         return no;
-    if(valor < no->esq){
+    if(valor < no->valor){
         no->esq = avl_removeNo(no->esq, valor);
-    }else if(valor > no->dir){
+    }else if(valor > no->valor){
         no->dir =avl_removeNo(no->dir, valor);
     }else{
         // achou
@@ -124,8 +124,30 @@ No* avl_removeNo(No *no, int valor){
             no->dir = avl_removeNo(no->dir, tmp->valor);
         }
     }
-    /** Tem que balancear aqui */
+    /** balanceia aqui */
+    avl_atualizaAltura(no);
 
+    int fb = avl_altura(no->esq) - avl_altura(no->dir);
+
+    //esquerda desbalanceada
+    if(fb > 1){
+        if(avl_altura(no->esq->esq) >= avl_altura(no->esq->dir)){
+            return avl_rotacionaSimplesDireita(no);
+        }else{
+            return avl_rotacionaDuplaDireita(no);
+        }
+    }
+
+    //direita desbalanceada
+    if(fb < -1){
+        if(avl_altura(no->dir->dir) >= (avl_altura(no->dir->esq))){
+            return avl_rotacionaSimplesEsquerda(no);
+        }else{
+            return avl_rotacionaDuplaEsquerda(no);
+        }
+    }
+    //tudo certo e perfeito
+    return no;
 }
 
 No* avl_criaArvoreComVetor(Vetor *vetor){
