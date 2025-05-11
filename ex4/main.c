@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <time.h>
 
-#define TAM 10000
+#define TAM 1000000
 #define EXEC 10
 #define EXEC_BUSCAS 30
 int main(){
@@ -14,9 +14,9 @@ int main(){
     clock_t fim_execucao;
     double tempo_gasto;
     No *avl, *arvore;
+    double soma_buscas_BST = 0, soma_buscas_AVL;
+    double media_buscas_BST, media_buscas_AVL;
 
-    char *find;
-    No *noBusca;
     int randNumber;
     
     FILE * arquivo = fopen("log.txt", "a");
@@ -32,10 +32,6 @@ int main(){
         // gera o vetor e um numero aleatorio para buscar
         vetor = criaVetor(TAM);
         populaVetorAleatorio(vetor);
-        if(testes % 2 == 0)
-            randNumber = vetor->dados[rand() % vetor->tamanho];
-        else
-            randNumber = rand() % vetor->tamanho;
 
         // cria a AVL
         inicio_execucao = clock();
@@ -51,22 +47,37 @@ int main(){
         tempo_gasto = (double)(fim_execucao - inicio_execucao) / CLOCKS_PER_SEC;
         fprintf(arquivo, "criação BST[h=%d]: %.5fs\n", altura(arvore), tempo_gasto);
 
-        // busca AVL
-        inicio_execucao = clock();
-        noBusca = buscaNaArvore(avl, randNumber);
-        fim_execucao = clock();
-        find = (noBusca != NULL ? "sim" : "nao");
-        tempo_gasto = (double)(fim_execucao - inicio_execucao) / CLOCKS_PER_SEC;
-        fprintf(arquivo, "busca na AVL[%s]: %.5fs", find, tempo_gasto); 
-        
-        // busca BST
-        inicio_execucao = clock();
-        noBusca = buscaNaArvore(arvore, randNumber);
-        fim_execucao = clock();
-        find = (noBusca != NULL ? "sim" : "nao");
-        tempo_gasto = (double)(fim_execucao - inicio_execucao) / CLOCKS_PER_SEC;
-        fprintf(arquivo, "busca na BST[%s]: %.5fs\n", find, tempo_gasto); 
+        // buscas
+        for(int i=0; i < EXEC_BUSCAS; i++){
+            //sorteio de um numero ou posição
+            if(i%2 == 0)
+                randNumber = vetor->dados[rand() % vetor->tamanho];
+            else
+                randNumber = rand() % vetor->tamanho;
+
+            // busca AVL
+            inicio_execucao = clock();
+            buscaNaArvore(avl, randNumber);
+            fim_execucao = clock();
+            tempo_gasto = (double)(fim_execucao - inicio_execucao) / CLOCKS_PER_SEC;
+                    
+            soma_buscas_AVL += tempo_gasto;
+
+            // busca BST
+            inicio_execucao = clock();
+            buscaNaArvore(arvore, randNumber);
+            fim_execucao = clock();
+            tempo_gasto = (double)(fim_execucao - inicio_execucao) / CLOCKS_PER_SEC;
+
+            soma_buscas_BST += tempo_gasto;
+        }
+
+        media_buscas_AVL = soma_buscas_AVL / EXEC_BUSCAS;
+        media_buscas_BST = soma_buscas_BST / EXEC_BUSCAS;
+        fprintf(arquivo, "tempo médio das %d buscas na AVL: %.5f\n", EXEC_BUSCAS, media_buscas_AVL);
+        fprintf(arquivo, "tempo médio das %d buscas na BST: %.5f\n", EXEC_BUSCAS, media_buscas_BST);
         fprintf(arquivo, "=================================================\n");
+
 
         // limpando dados
         liberaArvore(avl);
