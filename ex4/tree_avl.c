@@ -151,7 +151,7 @@ No* avl_removeNo(No *no, int valor){
 }
 
 No* avl_criaArvoreComVetor(Vetor *vetor){
-    if(vetor == NULL || vetor->dados == NULL) return NULL;
+    if(vetor == NULL || vetor->tamanho == 0) return NULL;
     No *raiz = avl_criaNo(vetor->dados[0]);
     for(int i=1; i<vetor->tamanho; i++)
         raiz = avl_insereNo(raiz, vetor->dados[i]);

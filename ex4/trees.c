@@ -14,13 +14,18 @@ No * criaNo(int valor){
 }
 
 No * criaArvoreComVetor(Vetor * vetor){
+    if(vetor == NULL || vetor->tamanho == 0)
+        return NULL;
+    int meio = (vetor->tamanho/2);
+    No * raiz = criaNo(vetor->dados[meio]);
 
-    No * raiz = criaNo(vetor->dados[0]);
-
-    for(int i = 1; i < vetor->tamanho; i++){
+    for(int i = 0; i < meio; i++){
         insereNo(raiz, vetor->dados[i]);
     }
-
+    
+    for(int i = meio + 1; i < vetor->tamanho; i++){
+        insereNo(raiz, vetor->dados[i]);
+    }
     return raiz;
 }
 

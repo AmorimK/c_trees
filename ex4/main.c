@@ -14,17 +14,13 @@
 #include "vetor.h"
 #include "trees.h"
 #include <stdio.h>
+
+#define TAM 1000
 int main(){
-    int dados[] = {60,40,70,20,50,65,80,10,45,55,90,42,52,56};
-    Vetor vetor = {dados, 14};  
-
-    No* raiz = avl_criaArvoreComVetor(&vetor);
-
-    imprimePreFixado(raiz);
-    printf("\n");
+    Vetor *vetor = criaVetor(TAM);  
     
-    raiz = avl_removeNo(raiz, 65);
+    populaVetorOrdenado(vetor);
 
-    imprimePreFixado(raiz);
-    printf("\n");
+    No *avl = avl_criaArvoreComVetor(vetor);
+    No *arvore = criaArvoreComVetor(vetor);
 }

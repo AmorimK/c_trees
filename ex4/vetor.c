@@ -5,6 +5,8 @@
 /* Operações */
 
 Vetor * criaVetor(int tamanho){
+  if(tamanho == 0)
+    return NULL;
   Vetor * vet = (Vetor*) malloc(sizeof(Vetor));
   if (!vet) {
   printf("Erro ao alocar memória para Vetor.\n");
@@ -41,8 +43,12 @@ void populaVetorAleatorio(Vetor * vet){
 
 void populaVetorOrdenado(Vetor * vet){
   vet->dados[0] = rand() % vet->tamanho;
+  int incremento_max = vet->tamanho / 100;
+  if (incremento_max == 0) 
+    incremento_max = 1;
+
   for(int i = 1; i < vet->tamanho; i++){
-    vet->dados[i] = vet->dados[i-1] + (rand() % (vet->tamanho/100));
+    vet->dados[i] = vet->dados[i-1] + (rand() % (10+ incremento_max));
   }
 }
 
