@@ -16,14 +16,9 @@ No * criaNo(int valor){
 No * criaArvoreComVetor(Vetor * vetor){
     if(vetor == NULL || vetor->tamanho == 0)
         return NULL;
-    int meio = (vetor->tamanho/2);
-    No * raiz = criaNo(vetor->dados[meio]);
+    No * raiz = criaNo(vetor->dados[0]);
 
-    for(int i = 0; i < meio; i++){
-        insereNo(raiz, vetor->dados[i]);
-    }
-    
-    for(int i = meio + 1; i < vetor->tamanho; i++){
+    for(int i = 1; i < vetor->tamanho; i++){
         insereNo(raiz, vetor->dados[i]);
     }
     return raiz;
@@ -77,6 +72,20 @@ void liberaArvore(No * raiz){
     }
 }
 
+/* Calculo da altura */
+int altura(No *raiz){
+    if(raiz == NULL){
+        return -1;
+    }
+    else{
+        int esq = altura(raiz->esq);
+        int dir = altura(raiz->dir);
+        if(esq > dir)
+            return esq + 1;
+        else
+            return dir + 1;
+    }
+}
 
 /* Funções para buscar */
 
