@@ -21,6 +21,8 @@ void imprimePosFixado(No * raiz);
 
 void liberaArvore(No * raiz);
 
+int altura(No *raiz);
+
 /* Funções para buscar */
 
 No * buscaNaArvore(No * raiz, int valor);
