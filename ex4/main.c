@@ -22,7 +22,7 @@ int main(){
     FILE * arquivo = fopen("log.txt", "a");
 
     srand(time(NULL));
-    fprintf(arquivo, "=================================================\n");
+    fprintf(arquivo, "\n=================================================\n");
     fprintf(arquivo, "Criação e busca em árvores BST e árvores AVL\n");
     fprintf(arquivo, "Tamanho do vetor: %d\n", TAM);
     fprintf(arquivo, "Quantidade de execuções: %d\n", EXEC);

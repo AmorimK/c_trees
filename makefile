@@ -43,7 +43,7 @@ ex4/trees.o: ex4/trees.c ex4/trees.h
 # Limpeza (Windows ou Unix)
 clean:
 	@echo "Limpando arquivos..."
-	@del /Q ex1_2\*.o ex3\*.o ex1_2\*.out ex3\*.out ex4\*.o ex4\*.out 2>NUL || rm -f ex1_2/*.o ex3/*.o ex1_2\*.out ex3\*.out ex4/*.o ex4/*.out
+	@del /Q ex1_2\*.o ex3\*.o ex1_2\*.out ex3\*.out ex4\*.o ex4\*.out 2>NUL || rm -f ex1_2/*.o ex3/*.o ex1_2/*.out ex3/*.out ex4/*.o ex4/*.out
 
 # Execuções
 run_ex1_2: ex1_2
