@@ -5,7 +5,7 @@ Kaua Amorim <br>
 Adrian Batista <br>
 Andre Kaled <br>
 
-## Padroes para desenvolvimento:
+## Padroẽs para desenvolvimento:
 
 - **Funções:** camelCase
 - **Variáveis:** snake_case
@@ -13,7 +13,7 @@ Andre Kaled <br>
 Funções sempre bem descritivas <br>
 **Ex:** criaArvoreBinaria
 
-Variáveis de preferencia no começo do código e bem descritivas <br>
+Variáveis de preferencia no começo do código e também descritivas <br>
 **Ex:** conta_elementos_arvore
 
 ## Executando com Makefile
