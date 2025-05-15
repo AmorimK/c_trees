@@ -3,7 +3,7 @@
 #include <time.h>
 #include "trees.h"
 #include "vetor.h"
-#define TAM 100000
+#define TAM 1000000
 #define EXEC 30
 
 int main(){
