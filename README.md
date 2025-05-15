@@ -27,6 +27,6 @@ make ex4        # compila algoritmos do experimento 4
 make run_ex1_2  # executa o programa do experimento 1 e 2
 make run_ex3    # executa o programa do experimento 3
 make ex4        # executa o programa do experimento 4
-make clean      # Remove arquivos .o e .out gerados na compilação
-make help       #lista comandos e descreve o que faz
+make clean      # remove arquivos .o e .out gerados na compilação
+make help       # lista comandos e descreve o que faz
 ```
