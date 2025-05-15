@@ -4,12 +4,16 @@
 #include "trees.h"
 #include "packages.h"
 #include "package_trees.h"
+#define TAM_ARVORE 20
+#define QTD_PACOTES 50
 
-/*Integrantes da Equipe:
+/*
+Integrantes da Equipe:
 Carlos Henrick Cavalcante Gomes
-Kaua Amorim
+Kauã Amorim
 Adrian Batista
-Andre Kaled*/
+Andre Kaled
+*/
 
 int main(){
 
@@ -17,11 +21,9 @@ int main(){
 
  /* Exercicio 1 */
 
- int tam_arvore = 20;
-
  No * raiz = criaNo(rand() % 1000);
 
- for(int i = 1; i < 20; i++){
+ for(int i = 1; i < TAM_ARVORE; i++){
     insereNo(raiz, rand() % 1000);
  }
 
@@ -40,18 +42,17 @@ int main(){
 
  /* Recebendo pacotes */
 
-int qtd_pacotes = 10;
+Pacote * pacotes = (Pacote*) malloc(sizeof(Pacote) * QTD_PACOTES);
+preencheVetorDePacotes(pacotes, QTD_PACOTES);
 
-Pacote * pacotes = (Pacote*) malloc(sizeof(Pacote) * qtd_pacotes);
-preencheVetorDePacotes(pacotes, qtd_pacotes);
+FILE * pacotes_recebidos = fopen("pacotes_recebidos.txt", "w");
 
-FILE * arquivo = fopen("log.txt", "a");
-
-for(int i = 0; i<qtd_pacotes; i++){
-    fprintf(arquivo,"id: %d, valor: %d\n", pacotes[i].id, pacotes[i].valor);
+for(int i = 0; i<QTD_PACOTES; i++){
+    fprintf(pacotes_recebidos,"id: %d, valor: %d\n", pacotes[i].id, pacotes[i].valor);
 }
 
-NoPacote * raiz_pacotes = criaArvoreComVetorDePacotes(pacotes, qtd_pacotes);
-imprimeCentralPacotes(raiz_pacotes, arquivo);
+FILE * pacotes_validados = fopen("pacotes_validados.txt", "w");
+NoPacote * raiz_pacotes = criaArvoreComVetorDePacotes(pacotes, QTD_PACOTES);
+imprimeCentralPacotes(raiz_pacotes, pacotes_validados);
 
 }

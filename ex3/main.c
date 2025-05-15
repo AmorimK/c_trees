@@ -3,14 +3,14 @@
 #include <time.h>
 #include "trees.h"
 #include "vetor.h"
-#define TAM 1000
+#define TAM 100000
 #define EXEC 30
 
 int main(){
 
     srand(time(NULL));
 
-    FILE * arquivo = fopen("log.txt", "a");
+    FILE * arquivo = fopen("buscas.txt", "w");
 
     double tempo_gasto;
     double soma_tempos_arvore = 0;
@@ -20,13 +20,23 @@ int main(){
     clock_t fim_execucao;
 
     int valores_busca[EXEC];
+    char log;
 
     /* Criando Vetor e Arvore */
+
+    printf("Aperte enter para instanciar o vetor na memoria.");
+    scanf("%c", &log);
 
     Vetor * vetor = criaVetor(TAM);
     populaVetorOrdenado(vetor);
 
+    printf("Aperte enter para instanciar a arvore na memoria.");
+    scanf("%c", &log);
+
     No * raiz = criaArvoreComVetor(vetor);
+
+    printf("Aperte enter para continuar a execucao do programa.");
+    scanf("%c", &log);
 
     /* Gerando valores a serem buscados */
 
