@@ -24,6 +24,6 @@ void populaVetorOrdenado(Vetor * vet);
 
 int buscaBinariaVetor(Vetor * vet, int valor_procurado );
 
-void quickSort(Vetor * vet, int tam);
+void quickSort(Vetor * vet);
 #endif
     

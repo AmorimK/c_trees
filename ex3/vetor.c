@@ -85,6 +85,6 @@ void quickCall(Vetor * vet, int inicio, int fim){
     }
 }
 
-void quickSort(Vetor * vet, int tam){
-  quickCall(vet, 0, tam-1);
+void quickSort(Vetor * vet){
+  quickCall(vet, 0, (vet->tamanho)-1);
 }

@@ -38,7 +38,7 @@ int main(){
     printf("Aperte enter para continuar a execucao do programa.");
     scanf("%c", &log);
 
-    quickSort(vetor, vetor->tamanho);
+    quickSort(vetor);
     /* Gerando valores a serem buscados */
 
     for(int i = 0; i < EXEC; i++){
