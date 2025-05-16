@@ -19,7 +19,7 @@ int main(){
 
     int randNumber;
     
-    FILE * arquivo = fopen("log.txt", "a");
+    FILE * arquivo = fopen("buscas_avl.txt", "a");
 
     srand(time(NULL));
     fprintf(arquivo, "\n=================================================\n");
@@ -38,14 +38,14 @@ int main(){
         avl = avl_criaArvoreComVetor(vetor);
         fim_execucao = clock();
         tempo_gasto = (double)(fim_execucao - inicio_execucao) / CLOCKS_PER_SEC;
-        fprintf(arquivo, "criação AVL[h=%d]: %.5fs | ", altura(avl),tempo_gasto);
+        fprintf(arquivo, "criação AVL[h=%d]: %.6fs | ", altura(avl),tempo_gasto);
         
         // cria a BST
         inicio_execucao = clock();
         arvore = criaArvoreComVetor(vetor);
         fim_execucao = clock();
         tempo_gasto = (double)(fim_execucao - inicio_execucao) / CLOCKS_PER_SEC;
-        fprintf(arquivo, "criação BST[h=%d]: %.5fs\n", altura(arvore), tempo_gasto);
+        fprintf(arquivo, "criação BST[h=%d]: %.6fs\n", altura(arvore), tempo_gasto);
 
         // buscas
         for(int i=0; i < EXEC_BUSCAS; i++){
@@ -74,9 +74,9 @@ int main(){
 
         media_buscas_AVL = soma_buscas_AVL / EXEC_BUSCAS;
         media_buscas_BST = soma_buscas_BST / EXEC_BUSCAS;
-        fprintf(arquivo, "tempo médio das %d buscas na AVL: %.5f\n", EXEC_BUSCAS, media_buscas_AVL);
-        fprintf(arquivo, "tempo médio das %d buscas na BST: %.5f\n", EXEC_BUSCAS, media_buscas_BST);
-        fprintf(arquivo, "=================================================\n");
+        fprintf(arquivo, "tempo médio das %d buscas na AVL: %.6f\n", EXEC_BUSCAS, media_buscas_AVL);
+        fprintf(arquivo, "tempo médio das %d buscas na BST: %.6f\n", EXEC_BUSCAS, media_buscas_BST);
+        fprintf(arquivo, "-----------------------------------------------------\n");
 
 
         // limpando dados
