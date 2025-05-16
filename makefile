@@ -3,7 +3,7 @@ all: ex1_2 ex3 ex4
 
 # ========= EX1_2 =========
 ex1_2: ex1_2/packages.o ex1_2/package_trees.o ex1_2/trees.o
-	gcc -Wall -Wextra ex1_2/main.c ex1_2/packages.o ex1_2/package_trees.o ex1_2/trees.o -o ex1_2/ex1_2.out
+	gcc -O3 -Wall -Wextra ex1_2/main.c ex1_2/packages.o ex1_2/package_trees.o ex1_2/trees.o -o ex1_2/ex1_2.out
 
 ex1_2/packages.o: ex1_2/packages.c ex1_2/packages.h
 	gcc -c ex1_2/packages.c -o ex1_2/packages.o
@@ -26,7 +26,7 @@ ex3/vetor.o: ex3/vetor.c ex3/vetor.h
 
 # ========= EX4 =========
 ex4: ex4/tree_avl.o ex4/vetor.o ex4/trees.o
-	gcc -Wall -Wextra -std=c99 ex4/main.c ex4/tree_avl.o ex4/vetor.o ex4/trees.o -o ex4/ex4.out
+	gcc -O3 -Wall -Wextra -std=c99 ex4/main.c ex4/tree_avl.o ex4/vetor.o ex4/trees.o -o ex4/ex4.out
 
 ex4/tree_avl.o: ex4/tree_avl.c ex4/tree_avl.h
 	gcc -c ex4/tree_avl.c -o ex4/tree_avl.o

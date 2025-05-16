@@ -28,7 +28,7 @@ int main(){
     scanf("%c", &log);
 
     Vetor * vetor = criaVetor(TAM);
-    populaVetorOrdenado(vetor);
+    populaVetorAleatorio(vetor);
 
     printf("Aperte enter para instanciar a arvore na memoria.");
     scanf("%c", &log);
@@ -38,6 +38,7 @@ int main(){
     printf("Aperte enter para continuar a execucao do programa.");
     scanf("%c", &log);
 
+    quickSort(vetor, vetor->tamanho);
     /* Gerando valores a serem buscados */
 
     for(int i = 0; i < EXEC; i++){

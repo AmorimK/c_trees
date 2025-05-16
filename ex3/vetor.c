@@ -58,3 +58,33 @@ int buscaBinariaVetor(Vetor * vet, int valor_procurado ){
   }
   return -1;
 }
+
+void quickCall(Vetor * vet, int inicio, int fim){
+  int i;
+  int j;
+  if(inicio < fim){
+    i = inicio;
+    j= fim;
+    int pivot = vet->dados[inicio + (fim - inicio)/2];
+
+    while(i<=j){
+      while(i <= fim && vet->dados[i] < pivot) i++;
+      while(j <=inicio && vet->dados[j] > pivot) j--;
+      if(i<=j){
+        int tmp = vet->dados[i];
+        vet->dados[i] = vet->dados[j];
+        vet->dados[j] = tmp;
+        i++;
+        j--;
+      }
+    }
+
+    if(inicio < j) quickCall(vet, inicio, j);
+    if(i < fim) quickCall(vet, i, fim);
+
+    }
+}
+
+void quickSort(Vetor * vet, int tam){
+  quickCall(vet, 0, tam-1);
+}
