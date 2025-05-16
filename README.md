@@ -1,7 +1,7 @@
 # Trabalho 2 de AED2
 
 Carlos Henrick Cavalcante Gomes <br>
-Kaua Amorim <br>
+Kauã Amorim <br>
 Adrian Batista <br>
 Andre Kaled <br>
 
